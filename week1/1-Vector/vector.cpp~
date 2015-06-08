@@ -7,7 +7,7 @@ public:
 	Vector& operator =(const Vector& other);
 	void insert(int index, double value);
 	void add(double value);
-	void get(int index);
+	double get(int index);
 	int size();
 	int capacity();
 private:
@@ -56,5 +56,50 @@ Vector& Vector::operator =(const Vector& other)
 		arr[i] = other.arr[i];
 	}
 	return *this;
+}
+
+
+void Vector::insert(int index, double value)
+{
+	if(size < index && index < capacity)
+	{
+		arr[index] = value;
+	}
+	else if(size != capacity)
+	{
+		for(int i=size; i!=index-1; i--)
+		{
+			arr[i+1] = arr[i];
+		}
+		arr[index] = valuel
+	}
+// another case to consider
+}
+
+
+void add(double value)
+{
+	if(size != capacity)
+	{
+		arr[size] = value;
+		size++;
+	}
+}
+
+double get(int index)
+{
+	return arr[index];
+}
+
+
+int size()
+{
+	return size;
+}
+
+
+int capacity()
+{
+	return capacity;
 }
 
