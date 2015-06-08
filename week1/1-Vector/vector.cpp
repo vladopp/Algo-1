@@ -74,7 +74,20 @@ void Vector::insert(int index, double value)
 		}
 		arr[index] = valuel
 	}
-// another case to consider
+	else if (size == capacity)
+	{
+		tmp = new double[2*capacity];
+		for(int i=0; i<size; i++)
+		{
+			tmp[i] = arr[i];
+		}
+		
+		delete[] arr;
+		arr = tmp;
+		capacity *= 2;
+		
+		this->insert(index, value);
+	}
 }
 
 

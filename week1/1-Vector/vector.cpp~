@@ -10,6 +10,7 @@ public:
 	double get(int index);
 	int size();
 	int capacity();
+	void remove(int index);
 private:
 	double* arr;
 	int size;
@@ -84,6 +85,21 @@ void add(double value)
 		arr[size] = value;
 		size++;
 	}
+	else
+	{
+		tmp = new double[2*capacity];
+		for(int i=0; i<size; i++)
+		{
+			tmp[i] = arr[i];
+		}
+		
+		delete[] arr;
+		arr = tmp;
+		capacity *= 2;
+		
+		arr[size] = value;
+		size++;
+	}
 }
 
 double get(int index)
@@ -101,5 +117,15 @@ int size()
 int capacity()
 {
 	return capacity;
+}
+
+
+void remove(int index)
+{
+	for(int i=index; i<size; i++)
+	{
+		arr[i] = arr[i+1];
+	}
+	size--;
 }
 
