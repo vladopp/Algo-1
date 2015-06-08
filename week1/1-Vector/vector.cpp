@@ -8,9 +8,10 @@ public:
 	void insert(int index, double value);
 	void add(double value);
 	double get(int index);
-	int size();
-	int capacity();
+	int siz();
+	int cap();
 	void remove(int index);
+	double pop();
 private:
 	double* arr;
 	int size;
@@ -37,7 +38,7 @@ Vector::~Vector()
 
 Vector::Vector(const Vector& other)
 {
-	capcity = other.capacity;
+	capacity = other.capacity;
 	size = other.size;
 	arr = new double[capacity];
 	for(int i=0; i<size; i++)
@@ -49,7 +50,7 @@ Vector::Vector(const Vector& other)
 
 Vector& Vector::operator =(const Vector& other)
 {
-	capcity = other.capacity;
+	capacity = other.capacity;
 	size = other.size;
 	arr = new double[capacity];
 	for(int i=0; i<size; i++)
@@ -72,11 +73,11 @@ void Vector::insert(int index, double value)
 		{
 			arr[i+1] = arr[i];
 		}
-		arr[index] = valuel
+		arr[index] = value;
 	}
 	else if (size == capacity)
 	{
-		tmp = new double[2*capacity];
+		double* tmp = new double[2*capacity];
 		for(int i=0; i<size; i++)
 		{
 			tmp[i] = arr[i];
@@ -91,7 +92,7 @@ void Vector::insert(int index, double value)
 }
 
 
-void add(double value)
+void Vector::add(double value)
 {
 	if(size != capacity)
 	{
@@ -100,7 +101,7 @@ void add(double value)
 	}
 	else
 	{
-		tmp = new double[2*capacity];
+		double* tmp = new double[2*capacity];
 		for(int i=0; i<size; i++)
 		{
 			tmp[i] = arr[i];
@@ -115,25 +116,25 @@ void add(double value)
 	}
 }
 
-double get(int index)
+double Vector::get(int index)
 {
 	return arr[index];
 }
 
 
-int size()
+int Vector::siz()
 {
 	return size;
 }
 
 
-int capacity()
+int Vector::cap()
 {
 	return capacity;
 }
 
 
-void remove(int index)
+void Vector::remove(int index)
 {
 	for(int i=index; i<size; i++)
 	{
@@ -142,3 +143,18 @@ void remove(int index)
 	size--;
 }
 
+
+double Vector::pop()
+{
+	if(size)
+	{
+		size--;
+		return arr[size];
+	}
+}
+
+
+int main()
+{
+	return 0;
+}
