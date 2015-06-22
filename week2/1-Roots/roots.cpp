@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <iostream>
 #include <climits>
 
@@ -33,3 +34,13 @@ int main()
 	cout << square_root(a) << endl;
 	return 0;
 }
+=======
+class Roots {
+public:
+
+  // Finds the square root of a number using binary search.
+  double squareRoot(int number) {
+    // ...
+  }
+};
+>>>>>>> fbe0c9dc0375af8dd22c8245cdcd2a23c2418388

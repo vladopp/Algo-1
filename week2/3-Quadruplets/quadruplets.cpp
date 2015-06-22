@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <iostream>
 #include <algorithm>
 
@@ -39,3 +40,13 @@ int main()
     cout << zero_quadruplets_count(a, b, c, d) << endl;
 	return 0;
 }
+=======
+class Quadruplets {
+public:
+
+  // Returns the number of quadruplets that sum to zero.
+  int zeroQuadrupletsCount(int* a, int* b, int* c, int* d) {
+    // ...
+  }
+};
+>>>>>>> fbe0c9dc0375af8dd22c8245cdcd2a23c2418388
