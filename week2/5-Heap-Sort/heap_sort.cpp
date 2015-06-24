@@ -33,6 +33,7 @@ public:
 		delete[] temp;
 	}
 
+<<<<<<< HEAD
 	void heapify(int* temp, int curr, const int size)
 	{
 		if(curr*2+1>=size)
@@ -63,6 +64,12 @@ public:
 			}		
 		}
 	}
+=======
+  // Sorts a sequence of integers.
+  void sort(int* sequence, int size) {
+    // ...
+  }
+>>>>>>> f965a0f7ae80f6dafa2e2d0aece479637dcd9afe
 };
 
 int main()
