@@ -1,10 +1,10 @@
-<<<<<<< HEAD
 #include <iostream>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
-int zero_quadruplets_count(vector<int> a,vector<int>  b,vector<int>  c,vector<int>  d)
+int zero_quadruplets_count(vector<int>& a,vector<int>& b,vector<int>& c,vector<int>& d)
 {
     int cnt = 0;
 
@@ -33,20 +33,25 @@ int zero_quadruplets_count(vector<int> a,vector<int>  b,vector<int>  c,vector<in
 
 int main()
 {
-    vector<int> a = {5, 3, 4};
-    vector<int> b = {-2, -1, 6};
-    vector<int> c = {-1, -2, 4};
-    vector<int> d = {-1, -2, 7};
+	int n, tmp;
+	cin >> n;
+    vector<int> a, b, c,d;
+	for(int i=0; i<n; i++) {
+		cin >> tmp;
+		a.push_back(tmp);
+	}
+	for(int i=0; i<n; i++) {
+		cin >> tmp;
+		b.push_back(tmp);
+	}
+	for(int i=0; i<n; i++) {
+		cin >> tmp;
+		c.push_back(tmp);
+	}
+	for(int i=0; i<n; i++) {
+		cin >> tmp;
+		d.push_back(tmp);
+	}
     cout << zero_quadruplets_count(a, b, c, d) << endl;
 	return 0;
 }
-=======
-class Quadruplets {
-public:
-
-  // Returns the number of quadruplets that sum to zero.
-  int zeroQuadrupletsCount(int* a, int* b, int* c, int* d, int size) {
-    // ...
-  }
-};
->>>>>>> fbe0c9dc0375af8dd22c8245cdcd2a23c2418388

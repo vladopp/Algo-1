@@ -62,15 +62,10 @@ static bool comp(const int& a,const int& b)
 int  main()
 {
 	Median test;
-	cout << test.insert(5) << endl;
-	cout << test.insert(6) << endl;
-	cout << test.insert(7) << endl;
-	cout << test.insert(4) << endl;
-	cout << test.insert(3) << endl;
-	cout << test.insert(10) << endl;
-	cout << test.insert(20) << endl;
-	cout << test.insert(30) << endl;
-	cout << test.insert(40) << endl;
-	cout << test.insert(50) << endl;	
-	return 0;
+	int n, tmp;
+	cin >> n;
+	while(n--) {
+		cin >> tmp;
+		cout << test.insert(tmp) << endl;
+	}
 }
