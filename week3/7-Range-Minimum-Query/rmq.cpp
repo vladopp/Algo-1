@@ -1,5 +1,6 @@
-#include <iostream>
+#include <stdio.h>
 #include <climits>
+#include <cstring>
 
 using namespace std;
 
@@ -20,6 +21,10 @@ public:
       Tree[i] = INT_MAX;
   }
 
+  ~RMQ() {
+    delete[] Tree;
+  }
+
   // sets the value at index
   void set(int index, int value) {
     index+=size;
@@ -27,10 +32,12 @@ public:
     index/=2;
 
     while(index>0) {
-      if(Tree[index]>value)
-        Tree[index]=value;
-      else
-        return;
+      /*if(Tree[index]>value)
+        Tree[index]=value;*/
+      int leftChild = index*2;
+      int rightChild = index*2+1;
+      Tree[index] = (Tree[leftChild] > Tree[rightChild] ? Tree[rightChild] : Tree[leftChild]);
+
       index/=2;
     }
   }
@@ -45,7 +52,6 @@ public:
       return Min > Tree[endIndex] ? Tree[endIndex] : Min;
 
     while(endIndex > startIndex) {
-
       if(endIndex%2==0) {
         Min = (Min > Tree[endIndex] ? Tree[endIndex] : Min);
         endIndex/=2;
@@ -60,6 +66,11 @@ public:
         Min = (Min > Tree[startIndex] ? Tree[startIndex] : Min);
         startIndex/=2;
         startIndex++;
+
+        if(startIndex==endIndex) {
+          Min = (Min > Tree[startIndex] ? Tree[startIndex] : Min);
+          break;
+        }
       }
       else {
         startIndex/=2;
@@ -74,22 +85,22 @@ public:
 int main()
 {
   int n,q;
-  cin >> n >> q;
+  scanf("%d%d",&n,&q);
 
   RMQ rmq(n);
 
   for(int i=0;i<n;i++) {
     int temp;
-    cin >> temp;
+    scanf("%d",&temp);
     rmq.set(i,temp);
   }
 
   for(int i=0;i<q;i++) {
-    string s;
+    char s[3];
     int a,b;
-    cin >> s >> a >> b;
-    if(s=="min")
-      cout << rmq.min(a,b) << endl;
+    scanf("%s%d%d",s,&a,&b);
+    if(strcmp(s,"min")==0) // if s is "min"
+      printf("%d\n",rmq.min(a,b));
     else {
       rmq.set(a,b);
     }
